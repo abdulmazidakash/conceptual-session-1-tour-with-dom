@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Comment Box</title>
+</head>
+<body>
+	<section>
+
+		<h1>Add New Comment</h1>
+		<div id="list-container">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae eius voluptatibus, hic provident amet recusandae sed rerum ea ut asperiores, soluta consectetur accusamus possimus omnis enim animi necessitatibus deleniti esse veniam officia, perferendis nesciunt reiciendis temporibus. Alias ratione a voluptatem suscipit aut accusantium consectetur odio dolorum minima, voluptas rerum autem.</p>
+			<p>Tempora incidunt perspiciatis ratione aliquid voluptatum ipsam odio temporibus, culpa consequuntur sint facilis! Optio quia suscipit, repellendus earum dolor iure nihil voluptas nostrum maxime mollitia sequi ipsum provident iusto pariatur, culpa totam autem sint dolorem corrupti exercitationem corporis. Blanditiis quas eos at facere saepe veritatis dignissimos cum distinctio corporis dolore.</p>
+			<p>Quo iste est ad dolores nostrum exercitationem cum ab, maiores ea, sunt perferendis veniam debitis suscipit provident eaque ratione, iusto voluptates dicta! Veritatis, labore debitis nisi dignissimos et, perferendis suscipit molestias, consequatur porro quae odio vitae vel laborum eveniet eos ab itaque officia vero. Nemo sint maiores dolor ad adipisci.</p>
+
+
+		</div>
+
+		<textarea name="" id="new-comment" cols="60" rows="5"></textarea>
+
+		<br>
+		<br>
+
+		<button id="btn-post">Button Post</button>
+
+	</section>
+
+
+	<script>
+		document.getElementById('btn-post').addEventListener('click', function(){
+
+			const commentBox = document.getElementById('new-comment');
+			// console.log(commentBox);
+			const newComment = commentBox.value;
+			// console.log(newComment);
+
+			const commentContainer = document.getElementById('list-container');
+			const p = document.createElement('p');
+			p.innerText = newComment;
+
+			commentBox.value = '';
+			commentContainer.appendChild(p);
+		});
+	</script>
+</body>
+</html>
