@@ -3,9 +3,35 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Simple calculation</title>
 </head>
 <body>
-	
+	<section>
+
+			<div>
+					<p style="background-color: tomato;font-size: 48px; color: white;">count: <span id="count">0</span></p>
+
+				<div>
+					<button onclick="makeIncrease()" class="btn-increase" style="background-color: crimson; font-size: 28px; color: white; border-radius: 10px; margin-bottom: 5px;">Increase Button (+)</button>
+					<button onclick="makeDecrease()" class="btn-decrease" style="background-color: crimson; font-size: 28px; color: white; border-radius: 10px; margin-bottom: 5px;">Decrease Button (-)</button>
+				</div>
+			</div>
+	</section>
+
+
+	<script>
+		function makeIncrease(){
+			let currentCount = Number(count.innerText);
+			// console.log(currentCount);
+			currentCount++;
+			count.innerText = currentCount;
+		}
+		function makeDecrease(){
+			let currentCount = Number(count.innerText);
+			currentCount--;
+			count.innerText = currentCount;
+
+		}
+	</script>
 </body>
 </html>
