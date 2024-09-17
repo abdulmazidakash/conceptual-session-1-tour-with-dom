@@ -4,11 +4,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Simple calculation</title>
+
+
+
 </head>
 <body>
 	<section>
 
-			<div>
+
+
+			<div id="counter">
 					<p style="background-color: tomato;font-size: 48px; color: white;">count: <span id="count">0</span></p>
 
 				<div>
@@ -19,19 +24,47 @@
 	</section>
 
 
+
+
+
 	<script>
-		function makeIncrease(){
+
+		const count = document.getElementById('count');
+		const counter = document.getElementById('counter');
+
+		const increaseBtn = document.getElementsByClassName('btn-increase')[0];
+		const decreaseBtn = document.getElementsByClassName('btn-decrease')[0];
+		
+		counter.addEventListener('click', function(){
+
+			if(increaseBtn.getAttribute('disabled') === null){
+				console.log('counter');
+				increaseBtn.setAttribute('disabled', true);
+				decreaseBtn.setAttribute('disabled', true);
+				console.log(increaseBtn.getAttribute('disabled'));
+			}else{
+				increaseBtn.removeAttribute('disabled');
+				decreaseBtn.removeAttribute('disabled');
+			}
+		});
+
+		increaseBtn.addEventListener('click', function makeIncrease(){
 			let currentCount = Number(count.innerText);
 			// console.log(currentCount);
 			currentCount++;
 			count.innerText = currentCount;
-		}
-		function makeDecrease(){
+		});
+
+		decreaseBtn.addEventListener('click', function makeDecrease(){
 			let currentCount = Number(count.innerText);
 			currentCount--;
 			count.innerText = currentCount;
 
-		}
+		});
+
+
+		//--------------
+		
 	</script>
 </body>
 </html>

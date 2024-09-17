@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Expense Calculator</title>
+
+
+	<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.tailwindcss.com"></script>
+
+
+</head>
+<body>
+	<section class="flex justify-center items-center mt-10">
+		<div class="expense-input-panel">
+			<h1 class="text-xl font-bold text-center my-4">Total Expenses: <span id="expense-amount">0</span></h1>
+			<div class="flex">
+				<input class="input input-bordered w-full max-w-xs" type="text" name="" id="expense-field" placeholder="Expense">
+				<input class="input input-bordered w-full max-w-xs" type="number" name="" id="amount-field" placeholder="Amount">
+
+				<button id="expense-insert-btn" class="btn btn-primary">Insert</button>
+			</div>
+		</div>
+	</section>
+
+	<section class="mt-5 w-1/3 mx-auto" id="row-container">
+		<!-- <div class="flex justify-between">
+			<p>Meal</p>
+			<p>80</p>
+		</div> -->
+	</section>
+
+
+
+	<script>
+
+		const htmlTag = document.getElementsByTagName('html')[0];
+
+		htmlTag.setAttribute('data-theme', 'dark')
+
+		const insertButton = document.getElementById('expense-insert-btn');
+		const expenseField = document.getElementById('expense-field');
+		const amountField = document.getElementById('amount-field');
+
+		const rowContainer = document.getElementById('row-container');
+
+		const expenseSpan = document.getElementById('expense-amount');
+
+		insertButton.addEventListener('click', function(){
+
+			const expense = expenseField.value;
+			const amount = Number(amountField.value);
+
+			const row = `
+		<div class="flex justify-between" data-amount="${amount}">
+			<p>${expense}</p>
+			<p>${amount}</p>
+		</div>
+			`
+
+			let expenseAmount = Number(expenseSpan.innerText);
+			expenseAmount += amount;
+
+			expenseSpan.innerText = expenseAmount;
+			rowContainer.innerHTML += row;
+			
+			// console.log(expense, amount);
+		})
+	</script>
+</body>
+</html>
